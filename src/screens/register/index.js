@@ -12,7 +12,7 @@ export default function Register({navigation}){
             <View style={styles.iconContainer}>
             <Image
         style={styles.docIcon}
-        source={require('../../../assets/icons/doc.png')}
+        source={require('../../../assets/icons/doctor.png')}
       />
             </View>
             <View style={styles.headingContainer}>
@@ -43,7 +43,7 @@ export default function Register({navigation}){
             </View>
 
             <View style={styles.inputs}>
-                <Button onPress={()=>{navigation.navigate("login")}} title='REGISTER'/>
+                <Button onPress={()=>{navigation.navigate("verification")}} title='REGISTER'/>
             </View>
             <View>
                 <Text>Existing Doctor? <Text style={styles.boldTxt}>Login</Text></Text>
@@ -68,12 +68,12 @@ const styles = StyleSheet.create({
         fontSize:30,
         
     }, docIcon: {
-        width: 60,
+        width: 120,
         height: 80,
       },
       iconContainer:{
           marginTop:30,
-          marginLeft:20
+        //   marginLeft:20
       },
       headingContainer:{
           marginTop:10,

@@ -12,7 +12,7 @@ export default function LogIn(){
             <View style={styles.iconContainer}>
             <Image
         style={styles.docIcon}
-        source={require('../../../assets/icons/doc.png')}
+        source={require('../../../assets/icons/doctor.png')}
       />
             </View>
             <View style={styles.headingContainer}>
@@ -58,12 +58,12 @@ const styles = StyleSheet.create({
         fontSize:30,
         
     }, docIcon: {
-        width: 60,
+        width: 120,
         height: 80,
       },
       iconContainer:{
           marginTop:40,
-          marginLeft:20
+        //   marginLeft:20
       },
       headingContainer:{
           marginTop:10,

@@ -10,6 +10,7 @@ import React from 'react';
 
 import Register from './src/screens/register'
 import LogIn from './src/screens/login'
+import EmailVerification from './src/screens/emailVerification'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderStyleInterpolators } from '@react-navigation/stack';
@@ -32,6 +33,18 @@ export default function App(){
             fontWeight: 'bold',
           },headerTitleAlign:'center'
         }} name="Register" component={Register} />
+
+    <Stack.Screen options={{
+          title: 'Email Verification',
+          headerStyle: {
+            backgroundColor: '#F6F6F6',
+            
+          },
+          headerTintColor: 'black',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },headerTitleAlign:'center'
+        }} name="verification" component={EmailVerification} />
 
     <Stack.Screen options={{
           title: 'Login',
