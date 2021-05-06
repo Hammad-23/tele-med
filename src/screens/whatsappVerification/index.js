@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { color } from 'react-native-reanimated';
 
 
-export default function EmailVerification({navigation}){
+export default function WhatsAppVerification({navigation}){
 
     const [show,setShow]=useState(false);
 
@@ -32,7 +32,7 @@ export default function EmailVerification({navigation}){
       />
             </View>
             <View style={styles.headingContainer}>
-            <Text style={styles.heading}>Verify Your Email.</Text>
+            <Text style={styles.heading}>Verify Your Whatsapp.</Text>
             <Text style={styles.smallText}>A 4 digit code has been sent to your email. Please check your email and enter the code below. </Text>
             </View>
 
@@ -57,7 +57,7 @@ export default function EmailVerification({navigation}){
                 show={show}
                 showProgress={false}
                 title="Congratulations!"
-                message="You are successfully Registered with us. Now let us take a moment to create your profile "
+                message="Your Whatsapp number is verified and connected with your account. "
                 closeOnTouchOutside={true}
                 closeOnHardwareBackPress={false}
                 showCancelButton={false}
@@ -70,7 +70,7 @@ export default function EmailVerification({navigation}){
                 }}
                 onConfirmPressed={() => {
                   hideAlert();
-                  navigation.navigate("profile")
+                //   navigation.navigate("profile")
                 }}
                 confirmButtonColor="#00B7DD"
                 
