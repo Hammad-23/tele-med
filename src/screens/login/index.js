@@ -5,7 +5,7 @@ import InputBox from '../../components/input'
 import Button from '../../components/button'
 
 
-export default function LogIn(){
+export default function LogIn({navigation}){
     return(
         <ScrollView style={styles.content}>
         <SafeAreaView>
@@ -33,7 +33,7 @@ export default function LogIn(){
            
 
             <View style={styles.inputs}>
-                <Button title='Log In'/>
+                <Button onPress={()=>{navigation.navigate("consultant")}} title='Log In'/>
             </View>
             <View style={{marginTop:20}}>
                 <Text>Forgot Password? </Text>

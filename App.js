@@ -13,6 +13,8 @@ import LogIn from './src/screens/login'
 import EmailVerification from './src/screens/emailVerification'
 import ProfileSetup from './src/screens/profileSetup'
 import WhatsAppVerification from './src/screens/whatsappVerification'
+import Consultants from './src/screens/consultants'
+import Specialities from './src/screens/specialities'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderStyleInterpolators } from '@react-navigation/stack';
@@ -85,6 +87,30 @@ export default function App(){
             fontWeight: 'bold',
           },headerTitleAlign:'center'
         }} name="whatsApp" component={WhatsAppVerification} />
+
+    <Stack.Screen options={{
+          title: 'Consultants',
+          headerStyle: {
+            backgroundColor: '#00B7DD',
+            
+          },
+          headerTintColor: '#FFF',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },headerTitleAlign:'center'
+        }} name="consultant" component={Consultants} />
+
+<Stack.Screen options={{
+          title: 'Specialities',
+          headerStyle: {
+            backgroundColor: '#00B7DD',
+            
+          },
+          headerTintColor: '#FFF',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },headerTitleAlign:'center'
+        }} name="specialities" component={Specialities} />
 
 
 

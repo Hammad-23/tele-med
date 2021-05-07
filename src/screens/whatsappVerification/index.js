@@ -10,18 +10,13 @@ import { color } from 'react-native-reanimated';
 
 
 export default function WhatsAppVerification({navigation}){
-
     const [show,setShow]=useState(false);
-
     showAlert = () => {
       setShow(true)
       };
-
       hideAlert = () => {
        setShow(false)
       };
-
-
     return(
         <ScrollView style={styles.content}>
         <SafeAreaView>
