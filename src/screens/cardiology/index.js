@@ -1,27 +1,9 @@
 import React from 'react'
 import {ScrollView,Text,StyleSheet,SafeAreaView,View,TextInput,Image,TouchableOpacity} from 'react-native'
-import MyTabs from '../../navigations/bottomTab' 
 
-export default function Consultants({navigation}){
-    let specialistCards=[{
-        title:"Allergy & Immunology"
-    },
-    {
-        title:"Allergy & Immunology"
-    },
-    {
-        title:"Allergy & Immunology"
-    },
-    {
-        title:"Allergy & Immunology"
-    },
-    {
-        title:"Allergy & Immunology"
-    },
-    {
-        title:"Allergy & Immunology"
-    }]
 
+export default function Cardiology(){
+   
     let consultants=[{
         title:"Dr.John Doe",
         category:"Cardiologist",
@@ -72,46 +54,26 @@ export default function Consultants({navigation}){
 
         </View>
 
-        <View style={styles.spec}>
-            <Text style={styles.specialTxt}>Specialities</Text>
-            <Text onPress={()=>{navigation.navigate("specialities")}}>View all</Text>
-        </View>
+       
 
-        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} contentContainerStyle={styles.horizontalCards}>
-            {specialistCards.map((item)=>{
-                return(
-                    <TouchableOpacity onPress={()=>{navigation.navigate("specialities")}} style={styles.cards}>
-                    
-                    <Image
-                 style={styles.docIcon}
-                 source={require('../../../assets/icons/Image.png')}
-               />
-               <Text>
-                  {item.title}
-               </Text>
-                    
-                    </TouchableOpacity>
-                )
-            })}
-           
-        </ScrollView>
-
+       
         <ScrollView contentContainerStyle={styles.rectCardsContainer}>
             {consultants.map((item)=>{
                 return(
-                    <TouchableOpacity onPress={()=>{navigation.navigate("home")}} style={styles.rectangularCard}>
+                    <View style={styles.rectangularCard}>
                     <View style={styles.cardsContent}>
                       <Image
                          style={styles.consultantIcon}
-                         source={require('../../../assets/icons/consultant_pic.png')}
+                         source={require('../../../assets/icons/Image.png')}
                        />
                        </View>
                        <View style={styles.cardsContent}>
                            <Text>{item.title}</Text>
                            <Text style={styles.fontDr}>{item.category}</Text>
                            <Text style={styles.fontDr}>{item.city}</Text>
+                          
                        </View>
-                    </TouchableOpacity>
+                    </View>
                 )
             })}
             

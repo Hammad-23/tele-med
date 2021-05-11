@@ -15,6 +15,11 @@ import ProfileSetup from './src/screens/profileSetup'
 import WhatsAppVerification from './src/screens/whatsappVerification'
 import Consultants from './src/screens/consultants'
 import Specialities from './src/screens/specialities'
+import Appoinments from './src/screens/appoinments'
+import Home from './src/screens/home'
+import Cardiology from './src/screens/cardiology'
+import {Image} from 'react-native'
+
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderStyleInterpolators } from '@react-navigation/stack';
@@ -100,6 +105,18 @@ export default function App(){
           },headerTitleAlign:'center'
         }} name="consultant" component={Consultants} />
 
+    <Stack.Screen options={{
+          title: 'Appoinments',
+          headerStyle: {
+            backgroundColor: '#00B7DD',
+            
+          },
+          headerTintColor: '#FFF',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },headerTitleAlign:'center'
+        }} name="appoinments" component={Appoinments} />
+
 <Stack.Screen options={{
           title: 'Specialities',
           headerStyle: {
@@ -111,6 +128,33 @@ export default function App(){
             fontWeight: 'bold',
           },headerTitleAlign:'center'
         }} name="specialities" component={Specialities} />
+
+<Stack.Screen options={{
+          title: 'Cardiology',
+          headerStyle: {
+            backgroundColor: '#00B7DD',
+            
+          },
+          headerTintColor: '#FFF',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },headerTitleAlign:'center'
+        }} name="cardiology" component={Cardiology} />
+
+      <Stack.Screen options={{
+          title: "",
+          headerStyle: {
+            backgroundColor: '#00B7DD',
+            // height:120
+            
+          },
+          headerTintColor: '#FFF',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },headerTitleAlign:'center'
+        }} name="home" component={Home}
+       
+        />
 
 
 

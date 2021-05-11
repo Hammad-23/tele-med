@@ -33,7 +33,7 @@ export default function LogIn({navigation}){
            
 
             <View style={styles.inputs}>
-                <Button onPress={()=>{navigation.navigate("consultant")}} title='Log In'/>
+                <Button onPress={()=>{navigation.navigate("home")}} title='Log In'/>
             </View>
             <View style={{marginTop:20}}>
                 <Text>Forgot Password? </Text>
