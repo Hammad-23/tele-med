@@ -3,9 +3,31 @@ import {SafeAreaView,TouchableOpacity,ScrollView,Text,View,Image,StyleSheet} fro
 
 
  export default function Home(){
+     let todaysAppoinments=[{
+         name:"Dr. John Doe",
+         category: "Cardiologist",
+         timmings:"15 August 2020, 10:30 AM - 11:00 AM"
+     },
+     {
+        name:"Dr. John Doe",
+        category: "Cardiologist",
+        timmings:"15 August 2020, 10:30 AM - 11:00 AM"
+    },{
+        name:"Dr. John Doe",
+        category: "Cardiologist",
+        timmings:"15 August 2020, 10:30 AM - 11:00 AM"
+    },{
+        name:"Dr. John Doe",
+        category: "Cardiologist",
+        timmings:"15 August 2020, 10:30 AM - 11:00 AM"
+    },{
+        name:"Dr. John Doe",
+        category: "Cardiologist",
+        timmings:"15 August 2020, 10:30 AM - 11:00 AM"
+    }]
     return(
         <>
-        <SafeAreaView style={{backgroundColor:"#00B7DD",height:170}}>
+        <View style={{backgroundColor:"#00B7DD",height:170}}>
 
             <View style={styles.iconRow}>
                 <View style={styles.iconContainer}>
@@ -46,12 +68,16 @@ import {SafeAreaView,TouchableOpacity,ScrollView,Text,View,Image,StyleSheet} fro
             </View>
 
 
-        </SafeAreaView>
+        </View>
 
         <View>
             <Text style={styles.appoinmentTxt}>Today's Appoinments (3)</Text>
         </View>
         <ScrollView contentContainerStyle={styles.scrollContainer}>
+        {todaysAppoinments.map((item)=>{
+            return(
+
+               
           <View style={styles.appoinmentCards}>
             <View style={styles.tagRow}>
               <View style={styles.tag}>
@@ -66,13 +92,41 @@ import {SafeAreaView,TouchableOpacity,ScrollView,Text,View,Image,StyleSheet} fro
                        />
                 </View>
                 <View style={{marginLeft:10}}>
-                    <Text>Dr. John Doe</Text>
-                    <Text style={styles.docCatogry}>Cardiologist</Text>
-                    <Text style={styles.timeDate}>15 August 2020, 10:30 AM - 11:00 AM</Text>
+                    <Text>{item.name}</Text>
+                    <Text style={styles.docCatogry}>{item.category}</Text>
+                    <Text style={styles.timeDate}>{item.timmings}</Text>
                 </View>
             </View>
+            <View style={styles.btnsContainer}>
+                <TouchableOpacity style={styles.callBtn}>
+                <Image
+                         style={styles.btnIcon}
+                         source={require('../../../assets/icons/videoIcon.png')}
+                       />
+                    <Text style={styles.btnTextColor}>
+                      VIDEO CALL
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.callBtn2}>
+                <Image
+                         style={styles.btnIconaudio}
+                         source={require('../../../assets/icons/audioIcon.png')}
+                       />
+                    <Text style={styles.btnTextColor}>
+                        PHONE CALL
+                    </Text>
+                </TouchableOpacity>
+
+
+            </View>
           </View>
+        
+
+            )
+        })}
         </ScrollView>
+        
 
 
 
@@ -146,7 +200,7 @@ const styles = StyleSheet.create({
         width:76,
         alignItems:"center",
         justifyContent:"center",
-        borderTopRightRadius:10
+        borderTopRightRadius:6
     },
     tagText:{
         fontSize:13,
@@ -165,7 +219,8 @@ const styles = StyleSheet.create({
         backgroundColor:"#FFFF",
         width:335,
         height:147,
-        marginTop:10
+        marginTop:10,
+        borderRadius:4
     },
     doctorInfo:{
         flexDirection:"row",
@@ -179,6 +234,43 @@ const styles = StyleSheet.create({
     docCatogry:{
         fontSize:12,
         color:"grey"
+    },
+    callBtn:{
+        borderWidth:1,
+        borderColor:"#003C75",
+        borderRadius:15,
+        width:118,
+        height:30,
+        flexDirection:"row",
+        justifyContent:"space-around",
+        alignItems:"center",
+    },
+    callBtn2:{
+        borderWidth:1,
+        borderColor:"#003C75",
+        borderRadius:15,
+        width:118,
+        height:30,
+        flexDirection:"row",
+        justifyContent:"space-around",
+        alignItems:"center",
+        marginLeft:10
+    },
+    btnIcon:{
+        width:18,
+        height:11.34
+    },
+    btnTextColor:{
+        color:"#003C75"
+    },
+    btnIconaudio:{
+        width:10.76,
+        height:18
+    },
+    btnsContainer:{
+        flexDirection:"row",
+        marginTop:20,
+        marginLeft:10
     }
 
 })
