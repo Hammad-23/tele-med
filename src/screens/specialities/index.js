@@ -2,7 +2,7 @@ import React from 'react'
 import {ScrollView,Text,StyleSheet,SafeAreaView,View,TextInput,Image,TouchableOpacity} from 'react-native'
 import MyTabs from '../../navigations/bottomTab' 
 
-export default function Specialities(){
+export default function Specialities({navigation}){
    
     let consultants=[{
         title:"Cardiology",
@@ -54,7 +54,9 @@ export default function Specialities(){
         <ScrollView contentContainerStyle={styles.rectCardsContainer}>
             {consultants.map((item)=>{
                 return(
-                    <View style={styles.rectangularCard}>
+                    <TouchableOpacity onPress={()=>{
+                        navigation.navigate("cardiology")
+                    }} style={styles.rectangularCard}>
                     <View style={styles.cardsContent}>
                       <Image
                          style={styles.consultantIcon}
@@ -66,7 +68,7 @@ export default function Specialities(){
                            <Text style={styles.fontDr}>{item.quantity}</Text>
                           
                        </View>
-                    </View>
+                    </TouchableOpacity>
                 )
             })}
             

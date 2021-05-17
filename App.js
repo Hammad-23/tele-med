@@ -19,6 +19,7 @@ import Appoinments from './src/screens/appoinments'
 import Home from './src/screens/home'
 import Cardiology from './src/screens/cardiology'
 import {Image} from 'react-native'
+import BottomTabs from './src/navigations/bottomTab'
 
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -152,7 +153,7 @@ export default function App(){
           headerTitleStyle: {
             fontWeight: 'bold',
           },headerTitleAlign:'center'
-        }} name="home" component={Home}
+        }} name="home" component={BottomTabs}
        
         />
 

@@ -1,15 +1,38 @@
 import React from 'react'
-
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Consultants from '../../src/screens/consultants'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Consultants from '../screens/consultants'
+import Specialities from '../screens/specialities'
+import Home from '../screens/home'
+
 
 const Tab = createBottomTabNavigator();
 
-export default function MyTabs() {
+export default function BottomTabs() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="consultant" component={Consultants} />
-      {/* <Tab.Screen name="Settings" component={SettingsScreen} /> */}
+    <Tab.Navigator initialRouteName="home" >
+      <Tab.Screen 
+      
+      options={{
+        tabBarLabel: 'Home',
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="home" color={color} size={size} />
+        ),
+      }}
+
+      name="home" component={Home} />
+
+      <Tab.Screen
+
+   options={{
+  tabBarLabel: 'Consultant',
+  tabBarIcon: ({ color, size }) => (
+    <MaterialCommunityIcons name="home" color={color} size={size} />
+  ),
+  }}
+      
+
+      name="consultant" component={Consultants} />
     </Tab.Navigator>
   );
 }

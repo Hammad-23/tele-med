@@ -1,6 +1,6 @@
 import React from 'react'
 import {SafeAreaView,TouchableOpacity,ScrollView,Text,View,Image,StyleSheet} from 'react-native'
-
+import BottomTabs from '../../navigations/bottomTab'
 
  export default function Home(){
      let todaysAppoinments=[{
@@ -76,8 +76,6 @@ import {SafeAreaView,TouchableOpacity,ScrollView,Text,View,Image,StyleSheet} fro
         <ScrollView contentContainerStyle={styles.scrollContainer}>
         {todaysAppoinments.map((item)=>{
             return(
-
-               
           <View style={styles.appoinmentCards}>
             <View style={styles.tagRow}>
               <View style={styles.tag}>
@@ -127,12 +125,7 @@ import {SafeAreaView,TouchableOpacity,ScrollView,Text,View,Image,StyleSheet} fro
         })}
         </ScrollView>
         
-
-
-
-
-
-
+      {/* <BottomTabs/> */}
         </>
     )
 }
