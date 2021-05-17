@@ -8,7 +8,6 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 import { useState } from 'react';
 import { color } from 'react-native-reanimated';
 
-
 export default function WhatsAppVerification({navigation}){
     const [show,setShow]=useState(false);
     showAlert = () => {

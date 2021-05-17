@@ -37,20 +37,10 @@ export default function Specialities({navigation}){
     return(
      <>
         <View style={styles.content}> 
-
             <View style={styles.inpContainer}>
                  <TextInput placeholder="Search by name,speciality and keyword" style={styles.input}/>
             </View>
-        
-
-
-
-
         </View>
-
-       
-
-       
         <ScrollView contentContainerStyle={styles.rectCardsContainer}>
             {consultants.map((item)=>{
                 return(

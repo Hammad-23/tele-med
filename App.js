@@ -20,6 +20,7 @@ import Home from './src/screens/home'
 import Cardiology from './src/screens/cardiology'
 import {Image} from 'react-native'
 import BottomTabs from './src/navigations/bottomTab'
+import ViewConsultant from './src/screens/viewConsultant'
 
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -154,6 +155,23 @@ export default function App(){
             fontWeight: 'bold',
           },headerTitleAlign:'center'
         }} name="home" component={BottomTabs}
+       
+        />
+
+
+
+<Stack.Screen options={{
+          title: "",
+          headerStyle: {
+            backgroundColor: '#00B7DD',
+            // height:120
+            
+          },
+          headerTintColor: '#FFF',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },headerTitleAlign:'center'
+        }} name="viewconsultant" component={ViewConsultant}
        
         />
 

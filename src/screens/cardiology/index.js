@@ -2,7 +2,7 @@ import React from 'react'
 import {ScrollView,Text,StyleSheet,SafeAreaView,View,TextInput,Image,TouchableOpacity} from 'react-native'
 
 
-export default function Cardiology(){
+export default function Cardiology({navigation}){
    
     let consultants=[{
         title:"Dr.John Doe",
@@ -60,7 +60,7 @@ export default function Cardiology(){
         <ScrollView contentContainerStyle={styles.rectCardsContainer}>
             {consultants.map((item)=>{
                 return(
-                    <View style={styles.rectangularCard}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate("viewconsultant")}} style={styles.rectangularCard}>
                     <View style={styles.cardsContent}>
                       <Image
                          style={styles.consultantIcon}
@@ -73,7 +73,7 @@ export default function Cardiology(){
                            <Text style={styles.fontDr}>{item.city}</Text>
                           
                        </View>
-                    </View>
+                    </TouchableOpacity>
                 )
             })}
             
