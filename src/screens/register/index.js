@@ -3,6 +3,7 @@ import {Text,TextInput,SafeAreaView,ScrollView,StyleSheet,View,Image} from 'reac
 import {Container,Content} from 'native-base';
 import InputBox from '../../components/input'
 import Button from '../../components/button'
+import axios from 'axios'
 
 
 export default function Register({navigation}){
@@ -14,16 +15,26 @@ export default function Register({navigation}){
 
     const register=()=>{
 
-        console.log(fullname)
-        console.log(email)
-        console.log(mobileNo)
-        console.log(password)
+        // console.log(fullname)
+        // console.log(email)
+        // console.log(mobileNo)
+        // console.log(password)
         if(password===confirmPass){
-          alert("Registered")
+            axios.get(`https://telemed.websitebnao.online/public/consultant/register?name=${fullname}&&email=${email}&&password=${password}&&confirmPassword=${confirmPass}`)
+      .then((res)=>{
+          console.log('response-->',res)
+         navigation.navigate("verification")
+      }).catch((e)=>{
+         console.log(e)
+      })
         }else{
             alert("Both Passwords are not matched")
         }
-        // navigation.navigate("verification")
+        
+
+     
+
+
     }
 
 
