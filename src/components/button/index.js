@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {StyleSheet,TouchableOpacity,Text} from 'react-native';
 
 
 export default function CustomButton(props){
+ 
     return(
 
       <TouchableOpacity {...props} style={styles.btn}>
