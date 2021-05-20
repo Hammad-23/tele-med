@@ -21,6 +21,8 @@ import Cardiology from './src/screens/cardiology'
 import {Image} from 'react-native'
 import BottomTabs from './src/navigations/bottomTab'
 import ViewConsultant from './src/screens/viewConsultant'
+import store from './src/redux/store'
+import {Provider} from 'react-redux'
 
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -31,6 +33,7 @@ const Stack = createStackNavigator();
 
 export default function App(){
   return(
+    <Provider store={store}>
     <NavigationContainer>
     <Stack.Navigator initialRouteName="Register">
       <Stack.Screen options={{
@@ -179,5 +182,6 @@ export default function App(){
 
     </Stack.Navigator>
   </NavigationContainer>
+  </Provider>
   )
 }

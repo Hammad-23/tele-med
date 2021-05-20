@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Text,TextInput,SafeAreaView,ScrollView,StyleSheet,View,Image} from 'react-native';
 import {Container,Content} from 'native-base';
 import InputBox from '../../components/input'
@@ -6,6 +6,27 @@ import Button from '../../components/button'
 
 
 export default function Register({navigation}){
+    const [fullname,setFullname]=useState('')
+    const [email,setEmail]=useState('')
+    const [mobileNo,setMobile]=useState('')
+    const [password,setPassword]=useState('')
+    const [confirmPass,setConfirm]=useState('')
+
+    const register=()=>{
+
+        console.log(fullname)
+        console.log(email)
+        console.log(mobileNo)
+        console.log(password)
+        if(password===confirmPass){
+          alert("Registered")
+        }else{
+            alert("Both Passwords are not matched")
+        }
+        // navigation.navigate("verification")
+    }
+
+
     return(
         <ScrollView style={styles.content}>
         <SafeAreaView>
@@ -22,28 +43,28 @@ export default function Register({navigation}){
 
            <SafeAreaView style={styles.form}>
             <View style={styles.inputs}>
-                <InputBox floatLabel="FULL NAME" />
+                <InputBox onChangeText={(text) => setFullname(text)} floatLabel="FULL NAME" />
             </View>
             <View style={styles.inputs}>
-                <InputBox floatLabel="EMAIL ADRESS"/>
+                <InputBox onChangeText={(text) => setEmail(text)} floatLabel="EMAIL ADRESS"/>
             </View>
             <View style={styles.inputs}>
-                <InputBox keyboardType="numeric" floatLabel="MOBILE(optional)"/>
+                <InputBox onChangeText={(text) => setMobile(text)} keyboardType="numeric" floatLabel="MOBILE(optional)"/>
             </View>
             <View style={styles.inputs}>
-                <InputBox secureTextEntry={true} floatLabel="PASSWORD"/>
+                <InputBox onChangeText={(text) => setPassword(text)} secureTextEntry={true} floatLabel="PASSWORD"/>
             </View>
             <View style={styles.inputs}>
-                <InputBox secureTextEntry={true} floatLabel="CONFIRM PASSWORD"/>
+                <InputBox onChangeText={(text) => setConfirm(text)} secureTextEntry={true} floatLabel="CONFIRM PASSWORD"/>
             </View>
-            <View style={{marginTop:10}}>
+            <View style={{marginTop:10,width:310}}>
                 <Text>
                     By continuing, you agree all the <Text style={styles.boldTxt}> Terms & Conditions</Text>
                 </Text>
             </View>
 
             <View style={styles.inputs}>
-                <Button onPress={()=>{navigation.navigate("verification")}} title='REGISTER'/>
+                <Button onPress={register} title='REGISTER'/>
             </View>
             <View>
                 <Text>Existing Doctor? <Text style={styles.boldTxt}>Login</Text></Text>
@@ -84,7 +105,7 @@ const styles = StyleSheet.create({
       },
       inputs:{
          
-          width:350,
+          width:310,
           marginTop:20
       },
       form:{

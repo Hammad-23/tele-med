@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Header, Content, Item, Input, Icon,Label } from 'native-base';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import { Container, Header, Content, Item, Input, Icon,Label,Image } from 'native-base';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 export default function InputBox(props) {
   
     return (
@@ -8,8 +8,8 @@ export default function InputBox(props) {
          
           <Item   floatingLabel>
              {/* <Icon active name='home' /> */}
-             <AntDesign size={15} name={"user"} color="black" />
-            
+             <EvilIcons color="black" size={15} name="envelope"/>
+             
             <Label>{props.floatLabel}</Label>
             
             <Input {...props} />

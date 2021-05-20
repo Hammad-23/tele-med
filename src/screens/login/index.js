@@ -23,7 +23,10 @@ export default function LogIn({navigation}){
            <SafeAreaView style={styles.form}>
           
             <View style={styles.inputs}>
+               
+               
                 <InputBox floatLabel="EMAIL ADRESS"/>
+                
             </View>
            
             <View style={styles.inputs}>
@@ -74,9 +77,18 @@ const styles = StyleSheet.create({
       },
       inputs:{
          
-          width:350,
-          marginTop:20
+          width:310,
+          marginTop:20,
+          
       },
+      inputsdemo:{
+         
+        width:310,
+        marginTop:20,
+       
+        
+        
+    },
       form:{
           alignItems:"center",
           marginTop:10,
