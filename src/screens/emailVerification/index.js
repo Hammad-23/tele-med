@@ -67,8 +67,6 @@ export default function EmailVerification({navigation}) {
                   .catch(e => {
                     console.log('OTP Error-->> ', e);
                   });
-
-                // alert("chal gaya")
               }}
               pinCount={4}
             />
