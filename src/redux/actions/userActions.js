@@ -4,9 +4,10 @@ const userRequest = () => {
     }
 }
 
-const userSuccess = () => {
+const userSuccess = (data) => {
     return{
-        type: "USER_SUCCESS"
+        type: "USER_SUCCESS",
+        // data
     }
 }
 
