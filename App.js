@@ -23,7 +23,7 @@ import BottomTabs from './src/navigations/bottomTab'
 import ViewConsultant from './src/screens/viewConsultant'
 import store from './src/redux/store'
 import {Provider} from 'react-redux'
-
+import Feather from 'react-native-vector-icons/Feather'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderStyleInterpolators } from '@react-navigation/stack';
@@ -67,6 +67,7 @@ export default function App(){
             height:70
             
           },
+          // headerShown:false,
           headerTintColor: 'black',
           headerTitleStyle: {
             fontWeight: 'bold',
@@ -116,6 +117,7 @@ export default function App(){
             backgroundColor: '#00B7DD',
             
           },
+          headerShown:false,
           headerTintColor: '#FFF',
           headerTitleStyle: {
             fontWeight: 'bold',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   ScrollView,
   Text,
@@ -10,29 +10,11 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import MyTabs from '../../navigations/bottomTab';
+import axios from 'axios';
+import {path} from '../../config/path';
 
 export default function Consultants({navigation}) {
-  let specialistCards = [
-    {
-      title: 'Allergy & Immunology',
-    },
-    {
-      title: 'Allergy & Immunology',
-    },
-    {
-      title: 'Allergy & Immunology',
-    },
-    {
-      title: 'Allergy & Immunology',
-    },
-    {
-      title: 'Allergy & Immunology',
-    },
-    {
-      title: 'Allergy & Immunology',
-    },
-  ];
-
+  const [details, setDetails] = useState([]);
   let consultants = [
     {
       title: 'Dr.John Doe',
@@ -68,6 +50,52 @@ export default function Consultants({navigation}) {
       title: 'Dr.John Doe',
       category: 'Cardiologist',
       city: 'New Delhi',
+    },
+  ];
+  let arr = [];
+  useEffect(async () => {
+    await axios
+      .get(`${path.CONSULTANTS_API}`)
+      .then(res => {
+        // console.log('consultants api res--> ', res.data.data);
+
+        let consultantsDetails = res.data.data;
+        consultantsDetails.forEach(element => {
+          // console.log('details--> ',element.name);
+          arr.push({
+            title: element.name,
+            category: 'cardiologist',
+            city: 'karachi',
+          });
+          setDetails([...arr]);
+        }); 
+      })
+      .catch(e => {
+        console.log('consultants api error--> ', e);
+      });
+  }, []);
+  console.log(details);
+  for (var i = 0; i < details.length; i++) {
+    consultants.push(details[i]);
+  }
+  let specialistCards = [
+    {
+      title: 'Allergy & Immunology',
+    },
+    {
+      title: 'Allergy & Immunology',
+    },
+    {
+      title: 'Allergy & Immunology',
+    },
+    {
+      title: 'Allergy & Immunology',
+    },
+    {
+      title: 'Allergy & Immunology',
+    },
+    {
+      title: 'Allergy & Immunology',
     },
   ];
 
@@ -118,7 +146,7 @@ export default function Consultants({navigation}) {
           return (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('home');
+                navigation.navigate('viewconsultant');
               }}
               style={styles.rectangularCard}>
               <View style={styles.cardsContent}>

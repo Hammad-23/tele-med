@@ -12,23 +12,29 @@ import {Container, Content} from 'native-base';
 import InputBox from '../../components/input';
 import Button from '../../components/button';
 import axios from 'axios';
+import Header from '../../components/header'
+import {path} from '../../config/path'
 
 export default function LogIn({navigation}) {
-    const [email,setEmail]=useState('')
-    const [password,setPassword]=useState('')
-    const logIn=()=>{
-        
-        axios.get(`https://telemed.websitebnao.online/public/consultant/login?email=${email}&&password=${password}`)
-        .then((res)=>{
-            console.log('login response--> ',res.data)
-            navigation.navigate('home');
-        }).catch((e)=>{
-            alert('login error')
-            console.log('login error--> ',e)
-        })
-    }
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const logIn = () => {
+    axios
+      .get(
+        `${path.LOGIN_API}?email=${email}&&password=${password}`,
+      )
+      .then(res => {
+        console.log('login response--> ', res.data);
+        navigation.navigate('home');
+      })
+      .catch(e => {
+        alert('login error');
+        console.log('login error--> ', e);
+      });
+  };
   return (
     <ScrollView style={styles.content}>
+      {/* <Header title='login' color='#FFFF' /> */}
       <SafeAreaView>
         <View style={styles.iconContainer}>
           <Image
@@ -45,18 +51,22 @@ export default function LogIn({navigation}) {
 
         <SafeAreaView style={styles.form}>
           <View style={styles.inputs}>
-            <InputBox onChangeText={text => setEmail(text)}   floatLabel="EMAIL ADRESS" />
-          </View>
-
-          <View style={styles.inputs}>
-            <InputBox onChangeText={text => setPassword(text)} secureTextEntry={true} floatLabel="PASSWORD" />
-          </View>
-
-          <View style={styles.inputs}>
-            <Button
-              onPress={logIn}
-              title="Log In"
+            <InputBox
+              onChangeText={text => setEmail(text)}
+              floatLabel="EMAIL ADRESS"
             />
+          </View>
+
+          <View style={styles.inputs}>
+            <InputBox
+              onChangeText={text => setPassword(text)}
+              secureTextEntry={true}
+              floatLabel="PASSWORD"
+            />
+          </View>
+
+          <View style={styles.inputs}>
+            <Button onPress={logIn} title="Log In" />
           </View>
           <View style={{marginTop: 20}}>
             <Text>Forgot Password? </Text>

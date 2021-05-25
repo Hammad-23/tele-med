@@ -17,6 +17,7 @@ import {useState} from 'react';
 import {color} from 'react-native-reanimated';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {path} from '../../config/path';
 export default function EmailVerification({navigation}) {
   const [show, setShow] = useState(false);
 
@@ -57,9 +58,7 @@ export default function EmailVerification({navigation}) {
                 console.log('hello-->>', validEmail);
                 console.log('code= ' + code);
                 axios
-                  .get(
-                    `https://telemed.websitebnao.online/public/consultant/verifyOtp?email=${validEmail}&&otp=${code}`,
-                  )
+                  .get(`${path.OTP_API}?email=${validEmail}&&otp=${code}`)
                   .then(res => {
                     console.log('My OTP Respsn', res.data);
                     showAlert();
