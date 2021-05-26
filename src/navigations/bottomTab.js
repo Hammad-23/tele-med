@@ -49,7 +49,7 @@ export default function BottomTabs() {
           // tabHeaderRight:(
           //  <Feather name='bell' size={15}  />
           // ),
-          headerShown:false,
+          
           tabBarLabel: 'Appoinments',
           tabBarIcon: ({color, size}) => (
             // <MaterialCommunityIcons name="home" color={color} size={size} />

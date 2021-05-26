@@ -15,44 +15,30 @@ import {path} from '../../config/path';
 
 export default function Consultants({navigation}) {
   const [details, setDetails] = useState([]);
+  const [special, setSpecial] = useState([]);
+
+  let specialistCards = [
+    {
+      title: 'Allergy & Immunology',
+    },
+    {
+      title: 'Allergy & Immunology',
+    },
+    {
+      title: 'Allergy & Immunology',
+    },
+  ];
+
   let consultants = [
     {
       title: 'Dr.John Doe',
       category: 'Cardiologist',
       city: 'New Delhi',
     },
-    {
-      title: 'Dr.John Doe',
-      category: 'Cardiologist',
-      city: 'New Delhi',
-    },
-    {
-      title: 'Dr.John Doe',
-      category: 'Cardiologist',
-      city: 'New Delhi',
-    },
-    {
-      title: 'Dr.John Doe',
-      category: 'Cardiologist',
-      city: 'New Delhi',
-    },
-    {
-      title: 'Dr.John Doe',
-      category: 'Cardiologist',
-      city: 'New Delhi',
-    },
-    {
-      title: 'Dr.John Doe',
-      category: 'Cardiologist',
-      city: 'New Delhi',
-    },
-    {
-      title: 'Dr.John Doe',
-      category: 'Cardiologist',
-      city: 'New Delhi',
-    },
+  
   ];
   let arr = [];
+  let arr2 = [];
   useEffect(async () => {
     await axios
       .get(`${path.CONSULTANTS_API}`)
@@ -68,36 +54,41 @@ export default function Consultants({navigation}) {
             city: 'karachi',
           });
           setDetails([...arr]);
-        }); 
+        });
       })
       .catch(e => {
         console.log('consultants api error--> ', e);
       });
+
+    getSpecialityLists();
   }, []);
-  console.log(details);
-  for (var i = 0; i < details.length; i++) {
-    consultants.push(details[i]);
+
+  const getSpecialityLists = async () => {
+    await axios
+      .get(`${path.SPECIALITY_API}`)
+      .then(res => {
+        console.log('speciality API response--> ', res.data);
+        let specialities = res.data.data;
+        specialities.forEach(response => {
+          arr2.push({
+            title: response.name,
+          });
+          setSpecial([...arr2]);
+        });
+      })
+      .catch(e => {
+        console.log('speciality API error--> ', e);
+      });
+  };
+
+  mappingData(details, consultants);
+  mappingData(special, specialistCards);
+
+  function mappingData(obj, list) {
+    for (let i = 0; i < obj.length; i++) {
+      list.push(obj[i]);
+    }
   }
-  let specialistCards = [
-    {
-      title: 'Allergy & Immunology',
-    },
-    {
-      title: 'Allergy & Immunology',
-    },
-    {
-      title: 'Allergy & Immunology',
-    },
-    {
-      title: 'Allergy & Immunology',
-    },
-    {
-      title: 'Allergy & Immunology',
-    },
-    {
-      title: 'Allergy & Immunology',
-    },
-  ];
 
   return (
     <>
@@ -146,7 +137,7 @@ export default function Consultants({navigation}) {
           return (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('viewconsultant');
+                navigation.navigate('viewconsultant', {item});
               }}
               style={styles.rectangularCard}>
               <View style={styles.cardsContent}>

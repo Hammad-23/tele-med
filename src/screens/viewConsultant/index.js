@@ -12,7 +12,13 @@ import {color} from 'react-native-reanimated';
 
 import CustomButton from '../../components/button';
 
-export default function ViewConsultant() {
+export default function ViewConsultant(props) {
+  // console.log('name--> ',props.route.params.item.title);
+  let info = {
+    name: props.route.params.item.title,
+    category: props.route.params.item.category,
+    city: props.route.params.item.city,
+  };
   return (
     <>
       <View style={{backgroundColor: '#00B7DD', height: 290}}>
@@ -26,13 +32,13 @@ export default function ViewConsultant() {
             </View>
             <View style={styles.infoUser}>
               <View>
-                <Text style={styles.userName}>John Doe</Text>
+                <Text style={styles.userName}>{info.name}</Text>
               </View>
               <View>
-                <Text style={styles.date}>Cardiologist</Text>
+                <Text style={styles.date}>{info.category}</Text>
               </View>
               <View>
-                <Text style={styles.date}>New Delhi</Text>
+                <Text style={styles.date}>{info.city}</Text>
               </View>
             </View>
           </View>
