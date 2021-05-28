@@ -52,6 +52,7 @@ export default function Consultants({navigation}) {
             title: element.name,
             category: 'cardiologist',
             city: 'karachi',
+            id:element.profile_id,
           });
           setDetails([...arr]);
         });
@@ -119,7 +120,7 @@ export default function Consultants({navigation}) {
           return (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('specialities');
+                navigation.navigate('specialities',{item});
               }}
               style={styles.cards}>
               <Image

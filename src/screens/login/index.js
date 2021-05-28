@@ -19,18 +19,18 @@ export default function LogIn({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const logIn = () => {
-    axios
-      .get(
-        `${path.LOGIN_API}?email=${email}&&password=${password}`,
-      )
-      .then(res => {
-        console.log('login response--> ', res.data);
+    // axios
+    //   .get(
+    //     `${path.LOGIN_API}?email=${email}&&password=${password}`,
+    //   )
+    //   .then(res => {
+    //     console.log('login response--> ', res.data);
         navigation.navigate('home');
-      })
-      .catch(e => {
-        alert('login error');
-        console.log('login error--> ', e);
-      });
+    //   })
+    //   .catch(e => {
+    //     alert('login error');
+    //     console.log('login error--> ', e);
+    //   });
   };
   return (
     <ScrollView style={styles.content}>

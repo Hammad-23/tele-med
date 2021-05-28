@@ -5,6 +5,7 @@ import Consultants from '../screens/consultants';
 import Specialities from '../screens/specialities';
 import Home from '../screens/home';
 import Appoinments from '../screens/appoinments';
+import More from '../screens/more'
 import {Image} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
@@ -62,6 +63,23 @@ export default function BottomTabs() {
         name="appoinments"
         component={Appoinments}
       />
+
+<Tab.Screen
+        options={{
+          tabBarLabel: 'More',
+          tabBarIcon: ({color, size}) => (
+            // <MaterialCommunityIcons name="home" color={color} size={size} />
+            <Image
+              style={{width: 20, height: 20}}
+              source={require('../../assets/icons/moreIcon.png')}
+            />
+          ),
+        }}
+        name="more"
+        component={More}
+      />
+
+
     </Tab.Navigator>
   );
 }

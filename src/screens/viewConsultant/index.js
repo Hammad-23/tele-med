@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import {
   SafeAreaView,
   TouchableOpacity,
@@ -9,15 +9,31 @@ import {
   StyleSheet,
 } from 'react-native';
 import {color} from 'react-native-reanimated';
+import axios from 'axios'
+import {path} from '../../config/path'
 
 import CustomButton from '../../components/button';
 
-export default function ViewConsultant(props) {
-  // console.log('name--> ',props.route.params.item.title);
+export default function ViewConsultant({navigation,route}) {
+
+  useEffect(async ()=>{
+    
+    await axios.get(`${path.PROFILE_API}?user_id=${route.params.item.id}`)
+    .then((res)=>{
+      console.log('profile response--> ',res.data.data)
+    }).catch((e)=>{
+      console.log('profile error--> ',e);
+    })
+
+  },[])
+
+
+  // console.log('name--> ',route.params.item);
+   
   let info = {
-    name: props.route.params.item.title,
-    category: props.route.params.item.category,
-    city: props.route.params.item.city,
+    name: route.params.item.title,
+    category: route.params.item.category,
+    city: route.params.item.city,
   };
   return (
     <>

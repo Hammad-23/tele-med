@@ -11,7 +11,8 @@ import {
 } from 'react-native';
 import MyTabs from '../../navigations/bottomTab';
 
-export default function Specialities({navigation}) {
+export default function Specialities({navigation},props) {
+  // console.log('speciality name--> ',props.route.params.item.title)
   let consultants = [
     {
       title: 'Cardiology',
