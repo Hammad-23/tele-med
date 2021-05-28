@@ -16,11 +16,21 @@ import CustomButton from '../../components/button';
 
 export default function ViewConsultant({navigation,route}) {
 
+  let userObj={
+    fee:'',
+    completion: '',
+    experience:'',
+    about:'',
+    services:'',
+    experiences:'',
+    registrations:''
+  }
+
   useEffect(async ()=>{
     
     await axios.get(`${path.PROFILE_API}?user_id=${route.params.item.id}`)
     .then((res)=>{
-      console.log('profile response--> ',res.data.data)
+      console.log('profile response--> ',res.data.data.profile.services)
     }).catch((e)=>{
       console.log('profile error--> ',e);
     })
@@ -29,6 +39,7 @@ export default function ViewConsultant({navigation,route}) {
 
 
   // console.log('name--> ',route.params.item);
+
    
   let info = {
     name: route.params.item.title,

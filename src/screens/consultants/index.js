@@ -50,8 +50,8 @@ export default function Consultants({navigation}) {
           // console.log('details--> ',element.name);
           arr.push({
             title: element.name,
-            category: 'cardiologist',
-            city: 'karachi',
+            category: element.profile.about,
+            city: element.profile.city,
             id:element.profile_id,
           });
           setDetails([...arr]);
