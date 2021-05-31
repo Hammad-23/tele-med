@@ -7,4 +7,5 @@ export const path = {
   CONSULTANTS_API: `${BASE_URL}consultant/userList`,
   SPECIALITY_API: `${BASE_URL}consultant/specialityList`,
   PROFILE_API: `${BASE_URL}consultant/userInfo`,
+  PROFILE_SETUP: `${BASE_URL}consultant/updateProfile`,
 };

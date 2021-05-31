@@ -11,6 +11,7 @@ import {
 import {Container, Content} from 'native-base';
 import InputBox from '../../components/input';
 import Button from '../../components/button';
+import PickerInput from '../../components/select'
 
 export default function ProfileSetup({navigation}) {
   return (
@@ -33,7 +34,8 @@ export default function ProfileSetup({navigation}) {
 
         <SafeAreaView style={styles.form}>
           <View style={styles.inputs}>
-            <InputBox floatLabel="SPECIALITY" />
+            {/* <InputBox floatLabel="SPECIALITY" /> */}
+            {/* <PickerInput/> */}
           </View>
 
           <View style={styles.inputs}>

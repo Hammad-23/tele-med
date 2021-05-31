@@ -21,6 +21,7 @@ import Cardiology from './src/screens/cardiology'
 import {Image} from 'react-native'
 import BottomTabs from './src/navigations/bottomTab'
 import ViewConsultant from './src/screens/viewConsultant'
+import BookAppoinments from './src/screens/bookAppoinments'
 import store from './src/redux/store'
 import {Provider} from 'react-redux'
 import Feather from 'react-native-vector-icons/Feather'
@@ -177,6 +178,22 @@ export default function App(){
             fontWeight: 'bold',
           },headerTitleAlign:'center'
         }} name="viewconsultant" component={ViewConsultant}
+       
+        />
+
+
+<Stack.Screen options={{
+          title: "Book Appoinments",
+          headerStyle: {
+            backgroundColor: '#00B7DD',
+            height:100
+            
+          },
+          headerTintColor: '#FFF',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },headerTitleAlign:'center'
+        }} name="bookAppoinments" component={BookAppoinments}
        
         />
 

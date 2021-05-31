@@ -90,7 +90,9 @@ export default function ViewConsultant({navigation,route}) {
         </View>
 
         <View style={styles.btnContain}>
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity onPress={()=>{
+            navigation.navigate('bookAppoinments')
+          }} style={styles.btn}>
             <Text style={styles.txtbtn}>BOOK APPOINMENTS</Text>
           </TouchableOpacity>
         </View>
