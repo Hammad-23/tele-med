@@ -12,25 +12,27 @@ import {Container, Content} from 'native-base';
 import InputBox from '../../components/input';
 import Button from '../../components/button';
 import axios from 'axios';
-import Header from '../../components/header'
-import {path} from '../../config/path'
+import Header from '../../components/header';
+import {path} from '../../config/path';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function LogIn({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const logIn = () => {
-    // axios
-    //   .get(
-    //     `${path.LOGIN_API}?email=${email}&&password=${password}`,
-    //   )
-    //   .then(res => {
-    //     console.log('login response--> ', res.data);
+    axios
+      .get(`${path.LOGIN_API}?email=${email}&&password=${password}`)
+      .then(res => {
+        console.log('login response--> ', res.data.data);
+        let userToken = res.data.data.token;
+        AsyncStorage.setItem('token', JSON.stringify(userToken));
+
         navigation.navigate('home');
-    //   })
-    //   .catch(e => {
-    //     alert('login error');
-    //     console.log('login error--> ', e);
-    //   });
+      })
+      .catch(e => {
+        alert('login error');
+        console.log('login error--> ', e);
+      });
   };
   return (
     <ScrollView style={styles.content}>

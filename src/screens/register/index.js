@@ -23,24 +23,24 @@ export default function Register({navigation}) {
   const [confirmPass, setConfirm] = useState('');
 
   const register = () => {
-    // if (password === confirmPass) {
-    //   axios
-    //     .get(
-    //       `${path.REGISTER_API}?name=${fullname}&&email=${email}&&password=${password}&&confirmPassword=${confirmPass}`,
-    //     )
-    //     .then(res => {
-    //       console.log('response-->', res);
-    //       navigation.navigate('verification');
-    //       AsyncStorage.setItem('email', JSON.stringify(email));
-    //     })
-    //     .catch(e => {
-    //       console.log(e);
-    //     });
-    // } else {
-    //   alert('Both Passwords are not matched');
-    // }
+    if (password === confirmPass) {
+      axios
+        .get(
+          `${path.REGISTER_API}?name=${fullname}&&email=${email}&&password=${password}&&confirmPassword=${confirmPass}`,
+        )
+        .then(res => {
+          console.log('response-->', res.data);
+          navigation.navigate('verification');
+          AsyncStorage.setItem('email', JSON.stringify(email));
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    } else {
+      alert('Both Passwords are not matched');
+    }
 
-    navigation.navigate('verification');
+    // navigation.navigate('verification');
   };
 
   return (

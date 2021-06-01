@@ -3,11 +3,15 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import InputBox from '../../components/input';
 import RadioButton from '../../components/radioButton';
+import CustomButton from '../../components/button'
 
 export default function PatientDetails() {
   const [male, setMale] = useState(false);
   const [female, setFemale] = useState(false);
   const [selected, setSelected] = useState('');
+  const [patientName,setPatientName]=useState('');
+  const [dateBirth,setDateBirth]=useState('');
+  const [age,setAge]=useState('');
   const radioMale = () => {
     setMale(!male);
     setFemale(false)
@@ -16,6 +20,16 @@ export default function PatientDetails() {
     setFemale(!female);
     setMale(false)
   };
+  const proceedBtn=()=>{
+    if(male){
+      setSelected('Male')
+    }else if(female){
+      setSelected('Female')
+    }
+
+    console.log('selected--> ',selected);
+
+  }
   return (
     <>
       <View style={styles.start}>
@@ -25,15 +39,15 @@ export default function PatientDetails() {
           </View>
 
           <View style={styles.inps}>
-            <InputBox floatLabel="FULL NAME" />
+            <InputBox onChangeText={text => setPatientName(text)} floatLabel="FULL NAME" />
           </View>
 
           <View style={styles.inpsRow}>
             <View style={styles.smallInps}>
-              <InputBox floatLabel="DATE OF BIRTH" />
+              <InputBox onChangeText={text => setDateBirth(text)} floatLabel="DATE OF BIRTH" />
             </View>
             <View style={styles.smallInps}>
-              <InputBox floatLabel="AGE(YEARS)" />
+              <InputBox keyboardType="numeric" onChangeText={text => setAge(text)} floatLabel="AGE(YEARS)" />
             </View>
           </View>
 
@@ -61,9 +75,14 @@ export default function PatientDetails() {
             </View>
           </View>
           <View style={styles.inps}>
+            <View>
               <Text>
                   DOCUMENTS
               </Text>
+            </View>
+          </View>
+          <View style={styles.inps}>  
+            <CustomButton onPress={proceedBtn} title='PROCEED' />
           </View>
         </ScrollView>
       </View>
